@@ -51,12 +51,11 @@ Press keys on keyboard to control PiCrawler!
     Ctrl^C: Quit
 """
 
-
 def show_info():
     print("\033[H\033[J", end="")  # clear terminal windows
     print(manual)
 
-
+# camera functions
 def camera_activate(cam_on):
     if cam_on == False:
         Vilib.camera_start(vflip=False, hflip=False)
@@ -66,7 +65,6 @@ def camera_activate(cam_on):
         Vilib.camera_close()
         print("\nCamera Deactivated")
 
-
 def capture_image(filename):
     status = Vilib.take_photo(filename, path=CAPTURE_PATH)
     if status:
@@ -74,7 +72,7 @@ def capture_image(filename):
     else:
         print("Capture Failed :(")
 
-
+# main running loop function
 def main():
     # flags
     cam_on = False
